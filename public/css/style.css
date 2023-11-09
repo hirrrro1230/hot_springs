@@ -1,0 +1,11 @@
+body {
+    background-color: #eef;
+  }
+  
+.section {
+    padding: 2rem 0;
+}
+
+.navbar-item.is-right {
+    margin-left: auto;
+}
