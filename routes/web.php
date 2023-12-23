@@ -31,3 +31,5 @@ Route::get('/spring/{id}/edit', 'SpringsController@edit')->name('springs.edit');
 Route::resource('comments', 'CommentsController');
 // Commentの削除
 Route::delete('/comment/{id}', 'CommentsController@destroy')->name('comments.destroy');
+// Commentの編集画面
+Route::get('/comment/{id}/edit', 'CommentsController@edit')->name('comments.edit');

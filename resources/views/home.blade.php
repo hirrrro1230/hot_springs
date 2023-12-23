@@ -3,6 +3,11 @@
 <title>ホーム</title>
 
 @section('content')
+<div id="map" style="height:500px">
+</div>
+<script src="{{ asset('/js/result.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAxkMEooIYQHVqwGrNYorltRry825FRRAA&callback=initMap" async defer>
+</script>
 <div class="container">
     <section class="section">
         <div class="column is-8 is-offset-2">
@@ -56,6 +61,9 @@
                             {{ $comment->user->name }} / {{ $comment->created_at }}
                         </p>
                         @if ($comment->user_id === Auth::user()->id)
+                            {!! Form::open(['route' => ['comments.edit', $comment->id], 'method' => 'get']) !!}
+                                <button type="submit" class="button is-primary is-small">編集</button>
+                            {!! Form::close() !!}
                             {!! Form::open(['route' => ['comments.destroy', $comment->id], 'method' => 'delete']) !!}
                                 <button type="submit" class="button is-danger is-small">削除</button>
                             {!! Form::close() !!}

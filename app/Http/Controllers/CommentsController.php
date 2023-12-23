@@ -42,4 +42,21 @@ class CommentsController extends Controller
             return redirect()->back()->with('error', '権限がありません');
         }
     }
+
+    // コメント編集画面を表示
+    public function edit($id) {
+        $comment = Comment::find($id);
+
+        // 投稿が存在しない場合のエラーハンドリング
+        if (!$comment) {
+            return redirect()->back()->with('error', '投稿が見つかりません');
+        }
+
+        // 認証されたユーザーが投稿者であるか確認
+        if ($comment->user_id == Auth::user()->id) {
+            return view('comments.edit', compact('comment'));
+        } else {
+            return redirect()->back()->with('error', '権限がありません。');
+        }
+    }
 }
