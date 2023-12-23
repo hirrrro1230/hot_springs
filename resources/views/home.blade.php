@@ -6,7 +6,7 @@
 <div id="map" style="height:500px">
 </div>
 <script src="{{ asset('/js/result.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAxkMEooIYQHVqwGrNYorltRry825FRRAA&callback=initMap" async defer>
+<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=&callback=initMap" async defer>
 </script>
 <div class="container">
     <section class="section">
